@@ -1,0 +1,173 @@
+{%load static%}
+{% if user.is_authenticated %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+<title>Register complaint</title>
+
+  <link rel = "icon" href = "{%static 'home/styles/images/Complaint Management System-logos_white.png'%}" type = "image/x-icon">
+
+<style type="text/css">
+    body{
+        overflow-x: hidden;
+    }
+    @media only screen and (max-width: 576px){
+
+    .textbox{
+      width: 105%;
+      display: block;
+      padding-left:-20%;
+    }
+
+    }
+</style>
+
+</head>
+<body style="background-color: #013A6B; background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%); min-height: 500px;">
+<!-------===================== NAVIGATION STARTS HERE =========================----->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'status'%}"><big>Status</big></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{%url 'showstatus'%}"><big>Pending</big></a>
+      </li>
+      
+    </ul>
+  <a href=" {%url 'logout'%} " class="btn btn-info btn-md">
+          <span class="glyphicon glyphicon-log-out"></span> Log out ❮
+        </a>
+  </div>
+</nav>
+
+<!----- ********** NAVIGATION ENDS HERE ************************-------------->
+
+    <!---================ cms heading starts here ========================-------->
+
+    <div class=" ">
+        <h2 class="row justify-content-center  mt-2" style="color: whitesmoke;" > <i> Complaint Registration form</i></h2>
+        
+    </div>
+
+
+    <!---****************** cms heading starts here ************************-------->    
+
+
+
+    <!--=======--Registration form  starts here ==========------------------------------>
+
+     <div class="card m-1" style="color:white; background-color:rgb(0, 0, 0,0.6);">
+    <div class="row g-3 d-flex justify-content-center mx-auto">
+  <form class="p-4" method="POST" action="{% url 'addcomplaint' %}" enctype="multipart/form-data">
+   {% csrf_token %}
+  <div class="form row justify-content-center">
+    <div class="form-group col-md-5">
+      <label for="disabledidnumber" >ID NUMBER</label>
+      <input type="text" class="form-control"  id="disabledidnumber" placeholder=" enter your name" name="id_number" readonly="readonly" value="{{user.first_name}}" required />
+    </div>
+
+    <div class="form-group col-md-5">
+      <label for="disabledname">NAME</label>
+      <input type="name" class="form-control" id="disabledname" placeholder=" P.poorna sai" name="name" readonly="readonly" value="{{user.last_name}}"/>
+    </div>
+  
+  <div class="form-group col-md-5 ">
+    <label for="class">CLASS</label>
+    <input name="class" type="text" class="form-control"  id="class" placeholder="CSE-3F" required>
+  </div>
+<div class="form-group col-md-5">
+      <label for="SelectDepartment" >Select Department</label>
+      <select id="SelectDepartment" class="form-control" required name="department">
+        <option selected>Select</option>
+        <option value="maintanence department"> Maintanence Department</option>
+        <option value="electrical department"> Electrical department</option>
+        <option value="it infra"> IT infra </option>
+        <option value="mess coordinator">Mess Coordinator</option>
+      </select>
+    </div>
+
+
+    <div class="form-group col-md-5">
+      <label for="inputproof">VIDEO PROOF</label>
+      <input type="file" class="form-control" id="inputproof" name ="videoproof" required />
+    </div>
+  
+
+<div class="form-group col-md-5">
+      <label for="inputproof">IMAGE PROOF</label>
+      <input type="file" class="form-control" id="inputproof" name ="imageproof" value=" " required>
+    </div>
+  </div>
+
+  <div class="form-group col-md-11 mx-auto textbox" required> 
+    
+    <label for="complaint-discription"> COMPLAINT DISCRIPTION</label>
+    <textarea class="form-control" id="complaint-discription" placeholder=" ex : pipe broken in I2 hostel in at first wing etc .... " name="complaint_txt" required></textarea>
+     <small for ="complaint-discription"> Note : Use official conversation discription to raise complaint</small>
+   
+  </div>
+
+  <!---div class="form-group row justify-content-center  ">
+    <div class="form-check">
+      <input class="form-check-input " type="checkbox" id="gridCheck" style="transform : scale(1.7);">
+      <label class="form-check-label" for="gridCheck">
+        <a href="#"  class="h4 text-light"> Agree T&C</a>
+      </label>
+    </div>
+  </div---->
+
+
+  <button type="submit" class="btn btn-primary btn-lg btn-block mb-4 col-lg-5 mx-auto">Submit</button>
+</form>
+</div>
+    </div>
+</div>
+
+<!-- ******** Registration form ends here *********------------>
+{%else%}
+<style type="text/css">
+
+.BLOGIN{
+  display: block;
+	margin:auto;
+	top:50%;
+	transform: translateY(-50%);
+	padding:30px;
+	background-color: rgb(0, 0, 0,0.7) ;
+	color: #c6f065;
+	text-decoration: none;
+	font-size:xx-large;
+}
+.logoutcontainer{
+	margin: 0%;
+	padding-top:50vh ;
+	height: 100vh;
+}
+</style>
+  <center><div class="logoutcontainer"><a type="submit" class="BLOGIN" href="{%url 'login'%}"> please login first</a></div></center>
+
+{%endif%}
+
+</body>
+
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+ 
+
+</html>

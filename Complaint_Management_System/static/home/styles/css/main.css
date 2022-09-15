@@ -1,0 +1,221 @@
+body{
+	margin:0px;
+	background-color: none;
+	height: 100%;
+	width: 100%;
+}
+.header-container{
+	background-color:#131414;
+
+	min-width:100%;
+	height: auto;
+	background-size: cover;
+	overflow: hidden;
+
+}
+	.header-body{
+		background-color:#131414;
+		margin-top: 0px;
+		margin-bottom: -5%;
+		padding-bottom: 30px;
+		display: block;
+	}
+
+
+.header{
+	margin-top: 20px;
+	max-width:100%;
+	display:flex;
+
+}
+.main_heading{
+	font-display:block;
+	width: 100%;
+	color: antiquewhite;
+	font-size:1.5vw;
+	display: block;
+	margin-top: -7vh;
+	margin-left :60px;
+	font-family: 'Oswald', sans-serif;
+	white-space: pre-wrap;
+
+
+}
+.sub-heading{
+	margin-left: 50%;
+	color: #f3f5ba;
+	margin-top: -3vh;
+	font-size:1.5vw;
+
+}
+
+.logo {
+	margin-left:0px;
+	width: 80px;
+
+	
+
+}
+
+
+	#logoimgg{
+		max-width:100%;
+		height: auto;
+		margin-top: -10vh;
+
+
+	}
+
+
+			#loginbtn{
+				padding: 10px 60px;
+				font-size: 1.2rem;
+				margin-top:-6vh;
+				margin-bottom:5%;
+				background-color:#18ab13;
+				border: solid 1px transparent;
+				border-radius: 5px;
+				transition: 2s all;
+}
+
+
+/*-----------------Login pop css Starts---------------*/
+
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+		
+			.container{
+				max-width:100%;
+				margin:-39% 35%;
+				background-color:rgb(222, 229, 252);
+				display: flex;
+				align-items: center;				
+				justify-content: center;
+				border: solid 2px transparent;
+				border-radius: 10px;
+				overflow: hidden;
+				position: absolute;
+				animation: mymove 1s;
+				transition:0.8s all;
+			}
+			#main{
+				display: none;
+			}
+
+				.clsbtn{
+					float: right;
+					margin-top: -30px;
+					margin-right: -30px;
+					background-color: black;
+					color:whitesmoke ;
+					border: solid 1px transparent;
+					font-size: 1.3rem;
+					border-radius:40%;
+					text-decoration: none;
+				
+				}
+
+				.clsbtn:hover{
+					padding: 2px;
+					font-size: 1.2rem;
+				}
+
+			.login-form{
+				margin: 30px 20px;
+				padding: 34px;
+				display:inline-block;
+				overflow: hidden;
+				
+			}
+			
+			.login-head{
+				
+			font-family: 'Lobster', cursive;
+
+			}
+			.inputlab{
+				color: #232c4a;
+				 font-family: 'Brush Script MT', cursive;
+
+			}
+			.input{
+				font-size:1.2em;
+				margin-top:-150px;
+				box-shadow: 2px 2px black;
+				color:#0909b3;
+				border-radius: 30px;
+				padding: 8px 13px;
+			}
+			#labs #lab{
+				font-size: 1em;
+			}
+
+			.floginbtn{
+				padding: 10px 30px;
+				font-size: 1rem;
+				margin-top:10px;
+				
+			 font-family: Verdana, sans-serif;
+			 background-color: #48f720;
+			 color: white;
+			 border: solid 1px transparent ;
+			 border-radius: 20px;
+			 transition: 0.3s all ease;
+
+}
+
+				.floginbtn:hover{
+					font-size: 1.2rem;
+					opacity: 90%;
+				}
+			 .fpsswd{
+			 	text-decoration: none;
+			 	font-family: sans-serif;
+			 	color: #b51d18;
+			 	opacity: 80%;
+			 }
+
+
+
+			@keyframes mymove {
+			 	 from {margin-top: 0%;}
+			  	to {margin-bottom:50%}
+				}
+
+			
+		
+	
+/*-----------------Login pop css Ends
+
+
+	/*------------ mobile-----------------*/
+
+	@media(max-width: 500px){
+	
+		
+			h1{
+				font-size:14px;
+			}
+		
+		
+				.main_heading{
+					
+					margin-top: -5vh;
+					margin-left:35px;
+				}
+
+			.sub-heading{
+				font-size: 3vw;
+				margin-left:30vw;
+				margin-top: -2vh;
+			}
+
+
+			.container{
+				max-width:100%;
+				margin: -54vh 2%;
+				
+
+	}
+	
+}
+
