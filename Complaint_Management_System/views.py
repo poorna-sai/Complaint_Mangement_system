@@ -4,6 +4,7 @@ from django.shortcuts import render ,redirect
 from django.template import loader
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
+
    
 from .models import *
 '''from .serializers import *
@@ -11,45 +12,15 @@ from .models import *
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
+'''
 
-
-# Create your views here.
-#read Database
-@api_view(['GET'])
-def GetComplaint(request):
-    Complaintsobj = Complaints.objects.all()
-    serializer=ComplaintsSerializer(Complaintsobj,many=True)
-    return Response(serializer.data)
-
-@api_view(['POST'])
-def PostComplaint(request):
-    Complaintsobj = Complaints.objects.all()
-    serializer=ComplaintsSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
-
-                #### UPDATE######
-
-@api_view(['POST'])
-def UpdateComplaint(request ,id):
-    Complaintsobj = Complaints.objects.get(id=id)
-    serializer=ComplaintsSerializer(instance=Complaintsobj, data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-    return Response(serializer.data)
-    
-    ########DELETE$$#######
-
-@api_view(['DELETE'])
-def DeleteComplaint(request ,id):
-    Complaintsobj = Complaints.objects.get(id=id)
-    Complaintsobj.delete()
-    return Response("Succesfully deleted")
-    '''
+#===================== Display home page ================================
 
 def index(request):
     return render(request , 'index.html')
+#===================================== FORGET PASSWORD ====================
+
+#===================== Catogerizing the Problem statements ===============================
 def maintainancedashboard(request):
     ComplaintObj = Complaints.objects.filter(department="maintanence department")
     data = {
@@ -94,7 +65,7 @@ def addcomplaint(request):
         return redirect('addcomplaint')
 
     return render(request, 'Complaint_reg.html')
-    
+#========================== Login view ======================================
 
 def login(request):
 
@@ -165,6 +136,71 @@ def seen(request,pk):
         return redirect('login')
     
 def Deletecomp(request,pk):
-    ComplaintObj = Complaints.objects.filter(id =pk).delete()
+    if request.user.is_authenticated:
+        solved = Complaints.objects.get(id=pk)
+        coppy = Solveddatabase(id_number = solved.id_number , complaint_txt = solved.complaint_txt  , Name = solved.Name , imageproof = solved.imageproof , videoproof = solved.videoproof , Class = solved.Class , date =solved.date , department = solved.department)
+        coppy.save()
+        ComplaintObj = Complaints.objects.filter(id =pk).delete()
+        username = request.user.username
+        if username == 'WATER@WATERADMIN':
+            return redirect('maintainancedashboard')
+        elif username == 'ITINFRA@ITINFRA':
+            return redirect('itdashboard')
+        elif username == 'ELECTRICAL@ELECTRICAL':
+            return redirect('electricdashboard')
+        elif username == 'MESS@MESS':
+            return redirect('messdashboard')
+        else:
+            return redirect("addcomplaint")
         
-    return redirect("login")
+#=============================AUTO REGISTRATION ===================================
+
+def Autoreg(request):
+    if request.method =='POST':
+        first_name1 = request.POST['first_name'].split("$")
+        last_name1 = request.POST['last_name'].split("$")
+        email1 = request.POST['email'].split("$")
+        username1 = request.POST['username'].split("$")
+        password11 = request.POST['password11'].split("$")
+        for i in range(len(first_name1)-1):
+
+            first_name = first_name1[i]
+            last_name =  last_name1[i]
+            email =     email1[i]
+            username   = username1[i]
+            password1 =password11[i]
+
+            user = User.objects.create_user(email=email , password = password1,username = username ,first_name = first_name ,last_name =last_name)
+            user.save()
+
+        return render(request , 'autoreg.html')
+    else:
+        return render(request , 'autoreg.html')
+
+#========================= Contact us ======================================
+        
+def Contactus(request):
+    return render(request , 'contact.html')
+#===================== Display performance ===============================
+
+def Displayperfomance(request):
+    electric = len(Complaints.objects.filter(department = "electrical department"))
+    maintain = len(Complaints.objects.filter(department="maintanence department"))
+    itinfra = len(Complaints.objects.filter(department="it infra"))
+    mess = len(Complaints.objects.filter(department="mess coordinator"))
+    data = {
+
+        'electric': electric,
+        'maintain': maintain,
+        'itinfra' : itinfra,
+        'mess' : mess
+        }
+    print(electric)
+    return render(request , 'perfomance.html' ,data)
+
+
+
+
+
+
+

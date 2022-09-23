@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title> Welcome Admib</title>
+
+	<style type="text/css">
+		.container{
+			border: 2px;
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			
+
+
+		}
+		label{
+			color : white;
+			font-style: oblique;
+			width: 20%;
+		}
+		textarea{
+			width: 100%;
+			padding: 10px;
+		}
+		button{
+			padding: 15px;
+			color: darkgreen;
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body style="background-color: #013A6B; background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%); min-height: 500">
+<center><h2 style="color :white;" > Auto registration Page</h2></center>
+
+	<div class="container">
+
+		<center>
+		<form method="POST" action="{%url 'Autoreg'%}">
+			{%csrf_token%}
+			<label for ="first name" > First name (ids)</label>
+			<textarea name  = "first_name" ></textarea><br>
+
+			<label for ="first name"  > First name (name)</label>
+			<textarea name  = "last_name" ></textarea><br>
+
+
+			<label for ="email"  > Email </label>
+			<textarea name  = "email" ></textarea><br>
+
+
+			<label for ="username"  > username </label>
+			<textarea name  = "username" ></textarea><br>
+
+
+			<label for ="password"  > First name (name)</label>
+			<textarea name  = "password11" ></textarea><br>
+
+
+			<button type="submit"> Add Users</button>
+
+		</form>
+
+</center>
+	</div>
+
+</body>
+</html>

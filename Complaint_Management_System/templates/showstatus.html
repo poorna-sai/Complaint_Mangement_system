@@ -9,6 +9,8 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<title> Complaint status</title>
   <link rel = "icon" href = "{%static 'home/styles/images/Complaint Management System-logos_white.png'%}" type = "image/x-icon">
 	<style type="text/css">
@@ -99,6 +101,16 @@ tr:nth-child(even) {
 		<p  id="cdis"style="text-size-adjust: auto; overflow: hidden;"> {{i.complaint_txt}}  ABOUT : {{i.department}}</p>
 
 		<br>
+
+		{% if i.seen %}
+               <b class="h4 " style="font-size:3vh;"> seen</b> 
+               <i class="fa fa-eye" style="font-size:48px;color:blue"></i>
+               {%else%}
+               <b class="h4 " style="font-size: 3vh;"> Not seen Yet</b> 
+               <i class="fa fa-eye-slash"  style="font-size:02em;color:red"></i>
+               
+                   {%endif%} 
+                   <br>
 		
 		<label for="vproof"> <b>VIDEO PROOF</b></label>
 		<br>
@@ -110,8 +122,9 @@ tr:nth-child(even) {
 
 			</div>
 	  <div class="modal-footer">
-		<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-		<button type="button" class="btn btn-primary">Save changes</button>
+	  	 <a href="{%url 'Deletecomp' i.id%}" type="button" class="btn btn-primary">Solved</a >
+		
+		
 	  </div>
 	</div>
   </div>
@@ -121,9 +134,9 @@ tr:nth-child(even) {
 
 
 	
-			<div class="jumbotron jumbotron-fluid m-4 p-1 bg-dark text-center">
-  <div class="container">
-    <h2 class="h2 text-white p-2 mx-auto text-center">Student Complaint</h2>
+			
+  
+    <h2 class="h2 text-white p-2 mx-auto text-center ">Student Complaint</h2>
     
     		
 
@@ -164,9 +177,8 @@ tr:nth-child(even) {
 			{% endblock show %}
 
 				</tbody></table>
+
 </div>
-
-
 
 
 </div>
@@ -174,12 +186,6 @@ tr:nth-child(even) {
 
 
   
-
-
-
-
-
-
 <!-----------------------IF USER NOT UTHENTICATED ------------->
 {%else%}
 <style type="text/css">

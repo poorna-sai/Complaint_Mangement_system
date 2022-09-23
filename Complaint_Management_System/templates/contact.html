@@ -1,0 +1,94 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="contact.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Contact Form</title>
+  <link rel="stylesheet" href="{%static 'home/styles/css/contact.css'%}">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+
+<body style="background-color: #013A6B; background-image: -webkit-linear-gradient(30deg, #013A6B 50%, #004E95 50%); min-height: 500px;">
+
+  <!-- contact1 -->
+    <div class=" section-gap"></div>
+      <div class="wrapper">
+        <h4 class="sub-title text-center"></h4>
+        <h3 class="global-title text-center" style="color:white;">Contact Us</h3>
+        <div class="d-grid contact-view">
+          <div class="cont-details">
+
+
+            <div class="cont-top">
+
+              <div class="cont-left text-center">
+                <span class="fa fa-phone text-primary"></span>
+              </div>
+
+              <div class="cont-right">
+                <h6 style="color:white;">Phone</h6>
+                <p><a href="#">180-406-7705</a></p>
+              </div>
+
+            </div>
+
+
+            <div class="cont-top margin-up">
+
+              <div class="cont-left text-center">
+                <span class="fa fa-envelope-o text-primary"></span>
+              </div>
+              <div class="cont-right">
+                <h6 style="color:white;">Email</h6>
+                <p><a href="snehabaipalli@mail.com" class="mail">cms@rguktsklm.ac.in</a></p>
+              </div>
+              
+            </div>
+
+
+            <div class="cont-top margin-up">
+              <div class="cont-left text-center">
+                
+              </div>
+              <div class="cont-right">
+                <h6></h6>
+                <p></p>
+              </div>
+            </div>
+          </div>
+
+
+
+          <div class="map-content">
+            <form action="#" method="post">
+              <div class="twice-two">
+                <input type="text" class="form-control" name="w3lName" id="w3lName" placeholder="Name" required="">
+                <input type="email" class="form-control" name="w3lSender" id="w3lSender" placeholder="Email"
+                  required="">
+              </div>
+
+              <div class="twice">
+                <input type="text" class="form-control" name="w3lSubject" id="w3lSubject" placeholder="Subject"
+                  required="">
+              </div>
+
+              <textarea name="w3lMessage" class="form-control" id="w3lMessage" placeholder="Message"
+                required=""></textarea>
+              <button type="submit" class="btn btn-contact">Send Message</button>
+            </form>
+          </div>
+
+
+
+        </div>
+      </div>
+    
+  <!-- /contact1 -->
+</body>
+
+</html>

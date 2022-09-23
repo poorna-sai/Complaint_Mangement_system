@@ -21,7 +21,7 @@
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-   
+      
 
 </head>
 
@@ -41,7 +41,7 @@
 
 				  <a class="links" href="#">Dashboard ☺</a> 
 				  
-				  <a class="links" href="#">Contact ☏</a> 
+				  <a class="links" href="{%url 'Contactus'%}" target="_blank">Contact ☏</a> 
 				  
 						
 					<a class="links" href="{%url 'logout'%}" type="submit">Login out ❮</a>
@@ -99,7 +99,7 @@
 		  	</div>
 		<div class="modal-footer">
 		  <a href="{%url 'seen' i.id%}" type="button" class="btn btn-secondary" >Seen</a>
-		  <a   href="{%url 'Deletecomp' i.id%}" type="button" class="btn btn-primary">Solved</a >
+		 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
 		</div>
 	  </div>
 	</div>
